@@ -7,6 +7,7 @@ const App = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
+  const [searchInput, setSearchInput] = useState("");
 
 
   useEffect(() => {
@@ -18,6 +19,11 @@ const App = () => {
     fetchPosts();
   }, []);
 
+  let onChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value)
+  }
+
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -25,16 +31,25 @@ const App = () => {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
+  let filteredGnomes = posts.filter(
+    (gnome) => {
+      return gnome.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1;
+    }
+  )
   return (
     <div className='App'>
        <header className="header container">
         <h1 className="page-title">Gnomify</h1>
+        <div>
+          <label>Search</label>
+          <input onChange= {onChange} type="text" />
+        </div>
       </header>
 
       {/* <main className="product-page"> */}
         <div className="container"> 
           <ul className="gnome-list" >
-            {currentPosts.map(post => (
+            {filteredGnomes.map(post => (
             <li  className="gnome-list__item">
             {/* <article className="product" itemScope itemType="http://schema.org/Product"> */}
                 <figure className="gnome__image-wrapper">
