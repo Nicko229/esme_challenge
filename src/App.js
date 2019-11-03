@@ -6,80 +6,61 @@ import './App.css';
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(9);
 
 
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json');
-      setPosts(res.data.Brastlewark);
-      console.log("res.sata", res.data.Brastlewark)
+      const firstPosts = res.data.Brastlewark.slice(0, 90)
+      setPosts(firstPosts);
     };
     fetchPosts();
   }, []);
 
-  console.log("posts", posts)
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // const indexOfLastPost = currentPage * postsPerPage;
-  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  // const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-  // const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div className='App'>
-      {/* <header className="header container">
-        <h1 className="page-title">MUSEMENT</h1>
-        <aside className="header-bag">
-          <div className="header-bag__item header-bag__count">
-            <div className="header-bag__price">
-            {bagItems}
-            </div>
-            <img src={bag} />
-            <span className="bag__item-counter">{bagIcon}</span>
-          </div>
-          <div className="header-bag__item header-bag__wishlist-count">
-            <img src={wishlistIcon} />
-              <span className="bag__item-counter">{wishlist}</span>
-          </div>
-        </aside>
-      </header> */}
+       <header className="header container">
+        <h1 className="page-title">Gnomify</h1>
+      </header>
 
-      <main className="product-page">
+      {/* <main className="product-page"> */}
         <div className="container"> 
-          <ul className="product-list" >
-            {posts.map(post => (
-            <li  className="product-list__item">
-            <article className="product" itemScope itemType="http://schema.org/Product">
-                <figure className="product__image-wrapper">
-                  <img className="product__image" src={post.thumbnail} alt="Product" itemProp="image"/>
+          <ul className="gnome-list" >
+            {currentPosts.map(post => (
+            <li  className="gnome-list__item">
+            {/* <article className="product" itemScope itemType="http://schema.org/Product"> */}
+                <figure className="gnome__image-wrapper">
+                  <img className="gnome__image" src={post.thumbnail} alt="Gnome picture" itemProp="image"/>
                   
                 </figure>
-                <div className="product__details">
-                  <h1 className="product__title" itemProp="brand">{post.name}</h1>
+                <div className="personal__details">
+                  <h1 className="name" itemProp="brand">{post.name}</h1>
                   <p className="product__subtitle" itemProp="description">{post.friends}</p>
                   <p className="product__subtitle" itemProp="description">{post.professions}</p>
 
                   <div className="product__price" itemScope itemType="http://schema.org/Offer">
-                  {/* <span className="product__price--strike">${post.original_retail_price.value}</span><span className="product__price--discounted" itemProp="price">${post.retail_price.value}</span> */}
                   </div>
-                  {/* <button
-                  onClick={() => setBagState(post)} 
-                  className="product__add-to-cart button button--primary">Add to Cart</button> */}
                 </div>
-              </article>
+              {/* </article> */}
             </li>
           ))}
           </ul>
                   
-          {/* <Pagination
+          <Pagination
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
             paginate={paginate}
-          /> */}
+          />
         </div>
-      </main>
+      {/* </main> */}
     </div>
   );
 };

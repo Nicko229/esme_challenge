@@ -1,23 +1,4 @@
-/* ==========================================================================
-   Fonts
-   ========================================================================== */
 
-   /* @font-face{
-    font-family: 'Lato-Bold';
-    src: url('./font/Lato-Bold.ttf') format('ttf');
-}
-@font-face{
-    font-family: 'Lato-BoldItalic';
-    src: url('./font/Lato-BoldItalic.ttf') format('ttf');
-}
-@font-face{
-    font-family: 'Lato-Italic';
-    src: url('./font/Lato-Italic.ttf') format('ttf');
-}
-@font-face{
-    font-family: 'Lato-Regular';
-    src: url('./font/Lato-Regular.ttf') format('ttf');
-} */
 
 /* ==========================================================================
    Main Styles
@@ -68,13 +49,12 @@ ul, li {
     list-style-type: none; 
 }
 
-button {
+/* button {
     appearance: none;
     border: 0;
-}
+} */
 
-header,
-footer {
+header {
     height: 60px;
     
     display: flex;
@@ -103,7 +83,7 @@ main {
    Buttons
    ========================================================================== */
 
-.icon {
+/* .icon {
     width: 20px;
     height: 20px;
     fill: #d9d9d9;
@@ -150,7 +130,7 @@ main {
 .button--in-cart {
     pointer-events: none;
     background-color: #d9d9d9;
-}
+} */
 
 /* ==========================================================================
    Header
@@ -167,113 +147,43 @@ main {
 }
 
 /* ==========================================================================
-   Bag
-   ========================================================================== */
-
-.header-bag {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-}
-
-.header-bag__item {
-    height: 25px;
-
-    display: flex;
-    align-items: flex-end;
-}
-
-.header-bag__item .icon {
-    height: auto;
-    fill: #444A59;
-}
-
-.header-bag__price {
-    margin-right: 5px;
-    font-size: 12px;
-    line-height: 12px;
-}
-
-.header-bag__count {
-    margin-left: 10px;
-}
-
-.header-bag__count .icon {
-    width: 17px;
-}
-
-.header-bag__wishlist-count {
-    margin-left: 10px;
-}
-
-.bag__item-counter {
-    width: 13px;
-    height: 13px;
-    margin-left: -1px;
-
-    display: flex;
-    align-self: flex-start;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'Lato-Bold', sans-serif;
-    font-size: 8px;
-    text-align: center;
-
-    border-radius: 50%;
-    color: #ffffff;
-    background-color: #358ED7;
-}
-
-/* ==========================================================================
    Product List
    ========================================================================== */
 
-.product-list {
+.gnome-list {
     display: flex;
     flex: 0 1 auto;
     flex-flow: row wrap;
     margin: 0 -10px;
 }
 
-.product-list__item {
+.gnome-list__item {
     padding: 10px;
     flex: 1  33.3333%;
     max-width: 33.3333%;
 }
 
-/* ==========================================================================
-   Product
-   ========================================================================== */
-
-.product {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    background-color: #ffffff;
-}
 
 /* ==========================================================================
-   Product Image
+   Gnome Image
    ========================================================================== */
 
-.product__image-wrapper {
+.gnome__image-wrapper {
     padding: 20px;
     position: relative;
     text-align: center;
 }
 
-.product__image {
+.gnome__image {
     max-width: 100%;
     height: auto;
 }
 
 /* ==========================================================================
-   Product Details
+   Personal Details
    ========================================================================== */
 
-.product__details {
+.personal__details {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
@@ -285,7 +195,7 @@ main {
    Product Titles
    ========================================================================== */
 
-.product__title {
+.name {
     padding-bottom: 10px; 
     
     font-family: 'Lato-Bold', sans-serif;
