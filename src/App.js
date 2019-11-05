@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import Pagination from './components/Pagination';
 import axios from 'axios';
 import './App.css';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -40,6 +38,8 @@ const App = () => {
     }
   }
 
+  console.log("posts", posts)
+
   return (
     <div className='App'>
        <header className="header container">
@@ -57,15 +57,16 @@ const App = () => {
             <li  className="gnome-list__item">
             {/* <article className="product" itemScope itemType="http://schema.org/Product"> */}
                 <figure className="gnome__image-wrapper">
-                  <img className="gnome__image" src={post.thumbnail} alt="Gnome picture" itemProp="image"/>
+                  <img className="gnome__image" hello={console.log("typeof", typeof post.name)} src={post.thumbnail} alt="Gnome picture" itemProp="image"/>
                   
                 </figure>
                 <div className="personal__details">
                   <h1 className="name" itemProp="brand">{post.name}</h1>
+                  <p className="product__subtitle" itemProp="description">Height: {Math.floor(post.height)}cm</p>
+                  <p className="product__subtitle" itemProp="description">Weight: {Math.floor(post.weight)}kg</p>
+
                   {details("Friends", post.friends)}
                   {details("Professions", post.professions)}
-
-                  {/* <p className="product__subtitle" itemProp="description">Professions: {arrayString(post.professions)}</p> */}
 
                   <div className="product__price" itemScope itemType="http://schema.org/Offer">
                   </div>
