@@ -32,17 +32,15 @@ const App = () => {
 
   let details = (itemType, item) => {
     if(item.length > 1) {
-      return <p className="product__subtitle" itemProp="description">{itemType}: {arrayString(item)}</p>
+      return <p className="gnome__subtitle" itemProp="description"><strong>{itemType}:</strong> {arrayString(item)}</p>
     } else {
       return <p></p>
     }
   }
 
-  console.log("posts", posts)
-
   return (
     <div className='App'>
-       <header className="header container">
+      <header className="header container">
         <h1 className="page-title">Gnomify</h1>
         <div>
           <label className="search-label">Search</label>
@@ -50,33 +48,25 @@ const App = () => {
         </div>
       </header>
 
-      {/* <main className="product-page"> */}
-        <div className="container"> 
-          <ul className="gnome-list" >
-            {filteredGnomes.map(post => (
-            <li  className="gnome-list__item">
-            {/* <article className="product" itemScope itemType="http://schema.org/Product"> */}
-                <figure className="gnome__image-wrapper">
-                  <img className="gnome__image" hello={console.log("typeof", typeof post.name)} src={post.thumbnail} alt="Gnome picture" itemProp="image"/>
-                  
-                </figure>
-                <div className="personal__details">
-                  <h1 className="name" itemProp="brand">{post.name}</h1>
-                  <p className="product__subtitle" itemProp="description">Height: {Math.floor(post.height)}cm</p>
-                  <p className="product__subtitle" itemProp="description">Weight: {Math.floor(post.weight)}kg</p>
-
-                  {details("Friends", post.friends)}
-                  {details("Professions", post.professions)}
-
-                  <div className="product__price" itemScope itemType="http://schema.org/Offer">
-                  </div>
-                </div>
-              {/* </article> */}
-            </li>
-          ))}
-          </ul>
-        </div>
-      {/* </main> */}
+      <div className="container"> 
+        <ul className="gnome-list" >
+          {filteredGnomes.map(post => (
+          <li key={post.name} className="gnome-list__item">
+            <figure className="gnome__image-wrapper">
+              <img className="gnome__image" src={post.thumbnail} alt="Gnome" itemProp="image"/>              
+            </figure>
+            <div className="personal__details">
+              <h1 className="name" ><strong>{post.name}</strong></h1>
+              <p className="gnome__subtitle" itemProp="description"><strong>Height:</strong> {Math.floor(post.height)}cm</p>
+              <p className="gnome__subtitle" itemProp="description"><strong>Weight:</strong> {Math.floor(post.weight)}kg</p>
+              <p className="gnome__subtitle" itemProp="description"><strong>Age:</strong> {Math.floor(post.age)}</p>
+              {details("Friends", post.friends)}
+              {details("Professions", post.professions)}
+            </div>
+          </li>
+        ))}
+        </ul>
+      </div>
     </div>
   );
 };

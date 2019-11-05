@@ -1,216 +1,132 @@
-
-
 /* ==========================================================================
    Main Styles
    ========================================================================== */
-   
-    * {
-        margin: 0;
-        padding: 0;
-    }
 
-   html {
-    height: 100%;
+html {
+  height: 100%;
 }
 
 body {
-    min-height: 100%;
-    margin: 0;
-    
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-    
-    font-family: 'Lato-Regular', sans-serif;
-    font-size: 13px;
-    text-rendering: optimizeLegibility;
+  min-height: 100%;
+  margin: 0;
+  
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  
+  font-family: 'Lato-Regular', sans-serif;
+  font-size: 13px;
+  text-rendering: optimizeLegibility;
 
-    -moz-osx-font-smoothing: grayscale;  /* Font smoothing tweaks for MacOSx in Gecko */
-    -webkit-font-smoothing: antialiased;
-    
-    color: #444A59;
-    background-color: #f8f8f8;
+  -moz-osx-font-smoothing: grayscale;  /* Font smoothing tweaks for MacOSx in Gecko */
+  -webkit-font-smoothing: antialiased;
+  
+  color: #444A59;
+  background-color: #f8f8f8;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1, p, figure {
-    margin: 0;
-    font-weight: normal;
-}
-
-a,
-a:hover,
-a:visited{
-    text-decoration: none;
-    color: #444A59;
+  margin: 0;
+  font-weight: normal;
 }
 
 ul, li {
-    margin: 0;
-    padding: 0;
-    list-style-type: none; 
+  margin: 0;
+  padding: 0;
+  list-style-type: none; 
 }
 
-/* button {
-    appearance: none;
-    border: 0;
-} */
-
 header {
-    height: 60px;
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    text-transform: uppercase;
-    background-color: #ffffff;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  background-color: #ffffff;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
-    flex: 1 0 auto;
-    margin: 30px 0 20px;
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  margin: 30px 0 20px;
 }
 
 .container {
-    width: 100%;
-    max-width: 1240px;
-    padding: 0 40px;
-    margin: 0 auto;
-}
-
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
-
-/* .icon {
-    width: 20px;
-    height: 20px;
-    fill: #d9d9d9;
-    transition: .3s fill;
-}
-
-.button {
-    border: 1px solid #d9d9d9;
-    border-radius: 100px;
-    background-color: #ffffff;
-    
-    cursor: pointer;
-    transition: .3s border, .3s color, .3s background-color;
-}
-
-.button--round {
-    display: block;
-    border-radius: 50%;
-}
-
-.button--primary {
-    padding: 13px;
-
-    font-family: 'Lato-Bold', sans-serif;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.39px;
-}
-
-.button--primary:hover {
-    border: 1px solid #444A59;
-    color: #ffffff;
-    background-color: #444A59;
-}
-
-.button--wishlist:hover {
-    border: 1px solid #444A59;
-}
-
-.button--wishlist:hover > .icon {
-    fill: #444A59;
-}
-
-.button--in-cart {
-    pointer-events: none;
-    background-color: #d9d9d9;
-} */
-
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  width: 100%;
+  max-width: 1240px;
+  padding: 0 40px;
+  margin: 0 auto;
 }
 
 .page-title {
-    display: block;
-    font-size: 20px;
+  display: block;
+  font-size: 20px;
 }
 
 .search-label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 /* ==========================================================================
-   Product List
+   Gnome List
    ========================================================================== */
 
 @media only screen and (max-width: 768px) {
-    .gnome-list__item {
-        padding: 10px !important;
-        flex: 1  50% !important;
-        max-width: 50% !important;
-    }
+  .gnome-list__item {
+    padding: 10px !important;
+    flex: 1  50% !important;
+    max-width: 50% !important;
+  }
 }
 
 @media only screen and (max-width: 450px) {
-    .gnome-list__item {
-        padding: 10px !important;
-        flex: 1  100% !important;
-        max-width: 100% !important;
-    }
-    .page-title {
-        display: none;
-        width: 100%;
-        font-size: 20px;
-    }
-    .header {
-        display: flex;
-        justify-content: center;
-    }
+  .gnome-list__item {
+    padding: 10px !important;
+    flex: 1  100% !important;
+    max-width: 100% !important;
+  }
+  .page-title {
+    display: none;
+    width: 100%;
+    font-size: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .gnome-list {
-    display: flex;
-    flex: 0 1 auto;
-    flex-flow: row wrap;
-    margin: 0 -10px;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin: 0 -10px;
 }
 
 .gnome-list__item {
-    padding: 10px;
-    flex: 1  33.3333%;
-    max-width: 33.3333%;
+  padding: 10px;
+  flex: 1  33.3333%;
+  max-width: 33.3333%;
 }
-
 
 /* ==========================================================================
    Gnome Image
    ========================================================================== */
 
 .gnome__image-wrapper {
-    padding: 20px;
-    position: relative;
+  padding: 20px;
+  position: relative;
 }
 
 .gnome__image {
-    width: 250px;
-    height: 220px;
+  width: 250px;
+  height: 220px;
 }
 
 /* ==========================================================================
@@ -218,129 +134,30 @@ main {
    ========================================================================== */
 
 .personal__details {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: column;
-    padding: 10px 20px 20px;
-    text-align: left;
-    width: 250px;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  padding: 10px 20px 20px;
+  text-align: left;
+  width: 250px;
 }
 
 /* ==========================================================================
-   Product Titles
+   Gnome Titles
    ========================================================================== */
 
 .name {
-    padding-bottom: 10px; 
-    font-family: 'Lato-Bold', sans-serif;
-    font-size: 14px;
-    letter-spacing: 1.37px;
-    text-transform: uppercase;
+  padding-bottom: 10px; 
+  font-family: 'Lato-Bold', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1.37px;
+  text-transform: uppercase;
 }
 
-.product__subtitle {
-    padding-bottom: 10px; 
-
-    font-size: 12px;
-    line-height: 19px;
-    letter-spacing: 0.43px;
-
-    color: #808080;
-}
-
-/* ==========================================================================
-   Product Prices
-   ========================================================================== */
-
-.product__price {
-    padding-bottom: 20px;
-    
-    font-family: 'Lato-Bold', sans-serif;
-    font-size: 14px;
-    letter-spacing: 2.33px;
-}
-
-.product__price--strike {
-    margin-right: 10px;
-    text-decoration: line-through;
-}
-
-.product__price--discounted {
-    color: #F54B5E;
-}
-
-/* ==========================================================================
-   Product actions
-   ========================================================================== */
-
-.product__wishlist-button {
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.product__add-to-cart {
-    width: 100%;
-    margin-top: 10px;
-    margin-top: auto;
-}
-
-/* ==========================================================================
-   Pagination
-   ========================================================================== */
-
-.pagination {
-    height: 45px;
-    margin: 30px auto;
-    text-align: center;
-}
-
-.pagination__list {
-    height: 100%;
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.pagination__item {
-    height: 100%;
-    width: 45px;
-    font-family: 'Lato-Bold', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.39px;
-    text-align: center;
-}
-
-.pagination__link {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #444A59;
-}
-
-.pagination__link:hover {
-    text-decoration: underline;
-}
-
-.pagination__link .icon {
-    width: 8px;
-    fill: #444A59;
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-.footer__sidenote {
-    font-family: 'Lato-Bold', sans-serif;
-    letter-spacing: 1.37px;
+.gnome__subtitle {
+  padding-bottom: 10px; 
+  font-size: 12px;
+  line-height: 19px;
+  letter-spacing: 0.43px;
+  color: #808080;
 }
