@@ -4,6 +4,11 @@
    Main Styles
    ========================================================================== */
    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
    html {
     height: 100%;
 }
@@ -143,12 +148,42 @@ main {
 }
 
 .page-title {
+    display: block;
     font-size: 20px;
+}
+
+.search-label {
+    margin-right: 5px;
 }
 
 /* ==========================================================================
    Product List
    ========================================================================== */
+
+@media only screen and (max-width: 768px) {
+    .gnome-list__item {
+        padding: 10px !important;
+        flex: 1  50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .gnome-list__item {
+        padding: 10px !important;
+        flex: 1  100% !important;
+        max-width: 100% !important;
+    }
+    .page-title {
+        display: none;
+        width: 100%;
+        font-size: 20px;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+    }
+}
 
 .gnome-list {
     display: flex;
@@ -175,8 +210,8 @@ main {
 }
 
 .gnome__image {
-    max-width: 100%;
-    height: auto;
+    width: 250px;
+    height: 220px;
 }
 
 /* ==========================================================================

@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Pagination from './components/Pagination';
+// import Pagination from './components/Pagination';
 import axios from 'axios';
 import './App.css';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(9);
   const [searchInput, setSearchInput] = useState("");
 
 
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json');
-      const firstPosts = res.data.Brastlewark.slice(0, 90)
+      const firstPosts = res.data.Brastlewark
       setPosts(firstPosts);
     };
     fetchPosts();
@@ -24,24 +22,30 @@ const App = () => {
     setSearchInput(e.target.value)
   }
 
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-  const paginate = pageNumber => setCurrentPage(pageNumber);
-
   let filteredGnomes = posts.filter(
     (gnome) => {
       return gnome.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1;
     }
   )
+ 
+  let arrayString = (arr) => {
+    return arr.toString().split(/[,]+/).join(', ')
+  }
+
+  let details = (itemType, item) => {
+    if(item.length > 1) {
+      return <p className="product__subtitle" itemProp="description">{itemType}: {arrayString(item)}</p>
+    } else {
+      return <p></p>
+    }
+  }
+
   return (
     <div className='App'>
        <header className="header container">
         <h1 className="page-title">Gnomify</h1>
         <div>
-          <label>Search</label>
+          <label className="search-label">Search</label>
           <input onChange= {onChange} type="text" />
         </div>
       </header>
@@ -58,8 +62,10 @@ const App = () => {
                 </figure>
                 <div className="personal__details">
                   <h1 className="name" itemProp="brand">{post.name}</h1>
-                  <p className="product__subtitle" itemProp="description">{post.friends}</p>
-                  <p className="product__subtitle" itemProp="description">{post.professions}</p>
+                  {details("Friends", post.friends)}
+                  {details("Professions", post.professions)}
+
+                  {/* <p className="product__subtitle" itemProp="description">Professions: {arrayString(post.professions)}</p> */}
 
                   <div className="product__price" itemScope itemType="http://schema.org/Offer">
                   </div>
@@ -68,12 +74,6 @@ const App = () => {
             </li>
           ))}
           </ul>
-                  
-          <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={posts.length}
-            paginate={paginate}
-          />
         </div>
       {/* </main> */}
     </div>
