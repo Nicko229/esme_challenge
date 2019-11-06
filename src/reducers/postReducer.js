@@ -12,13 +12,22 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch(action.type) {
-    default:
-      return state;
     case FETCH_POSTS:
-      console.log("hello from reducer")
       return {
         ...state,
         items: action.payload
       }
+    case CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload
+      }
+    case SEARCH_INPUT:
+      return {
+        ...state,
+        searchInput: action.payload
+      }
+    default:
+      return state;
   }
 };

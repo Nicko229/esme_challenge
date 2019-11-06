@@ -8,14 +8,17 @@ import axios from 'axios';
 import Img from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
 import { connect } from "react-redux";
-import { fetchPosts } from "./actions/postActions";
+import { 
+  fetchPosts,
+  getCurrentPage,
+  getSearchInput
+ } from "./actions/postActions";
 import './App.css';
 
 const App = (props) => {
   // const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(100);
-  const [searchInput, setSearchInput] = useState("");
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     props.fetchPosts();
@@ -27,16 +30,14 @@ const App = (props) => {
     // fetchPosts();
   }, []);
 
-  console.log("props.posts", props.posts)
-
   let onChange = (e) => {
     e.preventDefault();
-    setSearchInput(e.target.value)
+    props.getSearchInput(e)
   }
 
   let filteredGnomes = props.posts.filter(
     (gnome) => {
-      return gnome.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1;
+      return gnome.name.toLowerCase().indexOf(props.searchInput.toLowerCase()) !== -1;
     }
   )
  
@@ -52,11 +53,11 @@ const App = (props) => {
     }
   }
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const indexOfLastPost = props.currentPage * 100;
+  const indexOfFirstPost = indexOfLastPost - 100;
   const currentPosts = filteredGnomes.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => props.getCurrentPage(pageNumber)
 
   return (
 
@@ -92,7 +93,7 @@ const App = (props) => {
           </VisibilitySensor>
         ))}
         </ul>
-        <Pagination postsPerPage={postsPerPage} totalPosts={filteredGnomes.length} paginate={paginate} />
+        <Pagination postsPerPage={100} totalPosts={filteredGnomes.length} paginate={paginate} />
       </div>
       </Suspense>
     </div>
@@ -100,7 +101,9 @@ const App = (props) => {
 };
 
 let mapStateToProps = (state) => ({
-  posts: state.posts.items
+  posts: state.posts.items,
+  currentPage: state.posts.currentPage,
+  searchInput: state.posts.searchInput
 })
 
-export default connect(mapStateToProps, { fetchPosts })(App);
+export default connect(mapStateToProps, { fetchPosts, getCurrentPage, getSearchInput })(App);
