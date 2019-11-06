@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState, 
+  useEffect, 
+  Suspense 
+} from 'react';
+import Pagination from "./components/Pagination";
 import axios from 'axios';
+import Img from 'react-image';
+import VisibilitySensor from 'react-visibility-sensor';
 import './App.css';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(100);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
@@ -38,7 +47,14 @@ const App = () => {
     }
   }
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredGnomes.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   return (
+
     <div className='App'>
       <header className="header container">
         <h1 className="page-title">Gnomify</h1>
@@ -48,12 +64,16 @@ const App = () => {
         </div>
       </header>
 
+      <Suspense fallback={<div>Loading...</div>}>
       <div className="container"> 
         <ul className="gnome-list" >
-          {filteredGnomes.map(post => (
+          {currentPosts.map(post => (
+            <VisibilitySensor>
           <li key={post.name} className="gnome-list__item">
             <figure className="gnome__image-wrapper">
-              <img className="gnome__image" src={post.thumbnail} alt="Gnome" itemProp="image"/>              
+            
+              <Img className="gnome__image" src={post.thumbnail} alt="Gnome" itemProp="image"/>              
+            
             </figure>
             <div className="personal__details">
               <h1 className="name" ><strong>{post.name}</strong></h1>
@@ -64,9 +84,12 @@ const App = () => {
               {details("Professions", post.professions)}
             </div>
           </li>
+          </VisibilitySensor>
         ))}
         </ul>
+        <Pagination postsPerPage={postsPerPage} totalPosts={filteredGnomes.length} paginate={paginate} />
       </div>
+      </Suspense>
     </div>
   );
 };
