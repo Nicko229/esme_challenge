@@ -16,18 +16,9 @@ import {
 import './App.css';
 
 const App = (props) => {
-  // const [posts, setPosts] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     props.fetchPosts();
-    // const fetchPosts = async () => {
-    //   const res = await axios.get('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json');
-    //   const firstPosts = res.data.Brastlewark
-    //   setPosts(firstPosts);
-    // };
-    // fetchPosts();
   }, []);
 
   let onChange = (e) => {
