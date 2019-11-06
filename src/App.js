@@ -7,29 +7,34 @@ import Pagination from "./components/Pagination";
 import axios from 'axios';
 import Img from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
+import { connect } from "react-redux";
+import { fetchPosts } from "./actions/postActions";
 import './App.css';
 
-const App = () => {
-  const [posts, setPosts] = useState([]);
+const App = (props) => {
+  // const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(100);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json');
-      const firstPosts = res.data.Brastlewark
-      setPosts(firstPosts);
-    };
-    fetchPosts();
+    props.fetchPosts();
+    // const fetchPosts = async () => {
+    //   const res = await axios.get('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json');
+    //   const firstPosts = res.data.Brastlewark
+    //   setPosts(firstPosts);
+    // };
+    // fetchPosts();
   }, []);
+
+  console.log("props.posts", props.posts)
 
   let onChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value)
   }
 
-  let filteredGnomes = posts.filter(
+  let filteredGnomes = props.posts.filter(
     (gnome) => {
       return gnome.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1;
     }
@@ -55,9 +60,9 @@ const App = () => {
 
   return (
 
-    <div className='App'>
+    <div className='App' data-test="component-app">
       <header className="header container">
-        <h1 className="page-title">Gnomify</h1>
+        <h1 id="header-text" className="page-title">Gnomify</h1>
         <div>
           <label className="search-label">Search</label>
           <input onChange= {onChange} type="text" />
@@ -66,7 +71,7 @@ const App = () => {
 
       <Suspense fallback={<div>Loading...</div>}>
       <div className="container"> 
-        <ul className="gnome-list" >
+        <ul data-test="component-unordered-list" className="gnome-list" >
           {currentPosts.map(post => (
             <VisibilitySensor>
           <li key={post.name} className="gnome-list__item">
@@ -94,4 +99,8 @@ const App = () => {
   );
 };
 
-export default App;
+let mapStateToProps = (state) => ({
+  posts: state.posts.items
+})
+
+export default connect(mapStateToProps, { fetchPosts })(App);
