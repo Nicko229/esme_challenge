@@ -4,7 +4,6 @@ import React, {
   Suspense 
 } from 'react';
 import Pagination from "./components/Pagination";
-import axios from 'axios';
 import Img from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
 import { connect } from "react-redux";
@@ -53,7 +52,7 @@ const App = (props) => {
   return (
 
     <div className='App' data-test="component-app">
-      <header className="header container">
+      <header data-test="component-header" className="header container">
         <h1 id="header-text" className="page-title">Gnomify</h1>
         <div>
           <label className="search-label">Search</label>
@@ -63,7 +62,7 @@ const App = (props) => {
 
       <Suspense fallback={<div>Loading...</div>}>
       <div className="container"> 
-        <ul data-test="component-unordered-list" className="gnome-list" >
+        <ul className="gnome-list" >
           {currentPosts.map(post => (
             <VisibilitySensor>
           <li key={post.name} className="gnome-list__item">
