@@ -18,7 +18,7 @@ body {
   font-size: 13px;
   text-rendering: optimizeLegibility;
 
-  -moz-osx-font-smoothing: grayscale;  /* Font smoothing tweaks for MacOSx in Gecko */
+  -moz-osx-font-smoothing: grayscale; 
   -webkit-font-smoothing: antialiased;
   
   color: #444A59;
