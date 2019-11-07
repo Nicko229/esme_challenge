@@ -7,8 +7,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     pageNumbers.push(i);
   }
 
-  //remember to import bootstrap!!!!
-
   return (
     <nav>
       <ul className="pagination">
