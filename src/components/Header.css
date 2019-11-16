@@ -1,0 +1,18 @@
+header {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    background-color: #ffffff;
+  }
+
+  .page-title {
+    display: block;
+    font-size: 20px;
+  }
+
+  .search-label {
+    margin-right: 5px;
+  }

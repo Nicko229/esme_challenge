@@ -8,9 +8,9 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { connect } from "react-redux";
 import { 
   fetchPosts,
-  getCurrentPage,
-  getSearchInput
+  getCurrentPage
  } from "./actions/postActions";
+ import Header from "./components/Header";
 import './App.css';
 
 const App = (props) => {
@@ -18,11 +18,6 @@ const App = (props) => {
   useEffect(() => {
     props.fetchPosts();
   }, []);
-
-  let onChange = (e) => {
-    e.preventDefault();
-    props.getSearchInput(e)
-  }
 
   let filteredGnomes = props.posts.filter(
     (gnome) => {
@@ -51,13 +46,7 @@ const App = (props) => {
   return (
 
     <div className='App' >
-      <header className="header container">
-        <h1 id="header-text" className="page-title">Gnomify</h1>
-        <div>
-          <label className="search-label">Search</label>
-          <input onChange= {onChange} type="text" />
-        </div>
-      </header>
+      <Header />
 
       <Suspense fallback={<div>Loading...</div>}>
       <div className="container"> 
@@ -93,4 +82,4 @@ let mapStateToProps = (state) => ({
   searchInput: state.posts.searchInput
 })
 
-export default connect(mapStateToProps, { fetchPosts, getCurrentPage, getSearchInput })(App);
+export default connect(mapStateToProps, { fetchPosts, getCurrentPage })(App);
