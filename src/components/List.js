@@ -2,14 +2,9 @@ import React from "react";
 import Img from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
 import { connect } from "react-redux";
+import filteredGnomes from "../constants/filteredGnomes";
 
 const List = (props) => {
-
-  const filteredGnomes = props.posts.filter(
-    (gnome) => {
-      return gnome.name.toLowerCase().indexOf(props.searchInput.toLowerCase()) !== -1;
-    }
-  )
 
   const arrayString = (arr) => {
     return arr.toString().split(/[,]+/).join(', ')
@@ -25,7 +20,7 @@ const List = (props) => {
 
   const indexOfLastPost = props.currentPage * 100;
   const indexOfFirstPost = indexOfLastPost - 100;
-  const currentPosts = filteredGnomes.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = filteredGnomes(props).slice(indexOfFirstPost, indexOfLastPost);
 
   return(
     <ul className="gnome-list" >
