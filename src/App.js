@@ -10,6 +10,7 @@ import {
  } from "./actions/postActions";
  import Header from "./components/Header";
  import List from "./components/List";
+ import filteredGnomes from "./constants/filteredGnomes";
 import './App.css';
 
 const App = (props) => {
@@ -18,12 +19,6 @@ const App = (props) => {
     props.fetchPosts();
   }, []);
 
-  const filteredGnomes = props.posts.filter(
-    (gnome) => {
-      return gnome.name.toLowerCase().indexOf(props.searchInput.toLowerCase()) !== -1;
-    }
-  )
-
   const paginate = (pageNumber) => props.getCurrentPage(pageNumber)
 
   return (
@@ -31,8 +26,8 @@ const App = (props) => {
       <Header />
       <Suspense fallback={<div>Loading...</div>}>
       <div className="container"> 
-        <List filteredGnomes={filteredGnomes} />
-        <Pagination postsPerPage={100} totalPosts={filteredGnomes.length} paginate={paginate} />
+        <List  />
+        <Pagination postsPerPage={100} totalPosts={filteredGnomes(props).length} paginate={paginate} />
       </div>
       </Suspense>
     </div>
