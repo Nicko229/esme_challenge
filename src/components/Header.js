@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import "./Header.css";
 
 
-function Header(props) {
+const Header = (props) => {
 
   const onChange = (e) => {
     e.preventDefault();
