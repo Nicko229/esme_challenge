@@ -1,13 +1,15 @@
 import {
   FETCH_POSTS,
   CURRENT_PAGE,
-  SEARCH_INPUT
+  SEARCH_INPUT,
+  FILTERED_GNOMES
 } from "../actions/types";
 
 const initialState = {
   items: [],
   currentPage: 1,
-  searchInput: ""
+  searchInput: "",
+  filteredGnomes: []
 }
 
 export default function(state = initialState, action) {

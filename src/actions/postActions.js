@@ -1,7 +1,8 @@
 import {
   FETCH_POSTS,
   CURRENT_PAGE,
-  SEARCH_INPUT
+  SEARCH_INPUT,
+  FILTERED_GNOMES
 } from "./types";
 
   export const fetchPosts = () => dispatch => {
