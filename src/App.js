@@ -25,7 +25,7 @@ const App = (props) => {
     <div className='App' >
       <Header />
       <Suspense fallback={<div>Loading...</div>}>
-      <div className="container"> 
+      <div className="container-div"> 
         <List  />
         <Pagination postsPerPage={100} totalPosts={filteredGnomes(props).length} paginate={paginate} />
       </div>
