@@ -16,7 +16,7 @@ body {
   flex: 1 0 auto;
   
   font-family: 'Lato-Regular', sans-serif;
-  font-size: 13px;
+  font-size: 4vh;
   text-rendering: optimizeLegibility;
 
   -moz-osx-font-smoothing: grayscale; 
@@ -32,7 +32,7 @@ body {
 
 .container-div {
   width: 90%;
-  padding: 40px 40px;
+  padding: 5% 5%;
   margin: 0 auto;
   display: inline-block;
   margin-left: 5%;
@@ -50,7 +50,7 @@ ul, li {
 }
 
 .header {
-  height: 60px;
+  height: 4em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,11 +61,7 @@ ul, li {
 
 .page-title {
   display: block;
-  font-size: 20px;
-}
-
-.search-label {
-  margin-right: 5px;
+  font-size: 5vh;
 }
 
 /* ==========================================================================
@@ -74,14 +70,9 @@ ul, li {
 
 @media only screen and (max-width: 812px) {
   .gnome-list__item {
-    padding: 10px;
+    padding: 5%;
     flex: 1  45%;
     max-width: 45%;
-  }
-  .page-title {
-    display: none;
-    width: 90%;
-    font-size: 20px;
   }
   .header {
     display: flex;
@@ -100,21 +91,19 @@ ul, li {
 
 @media only screen and (max-width: 375px) {
   .gnome-list__item {
-    padding: 10px;
+    padding: 5%;
     flex: 1  90%;
     max-width: 100%;
-  }
-  .page-title {
-    display: none;
-    width: 90%;
-    font-size: 20px;
   }
   .header {
     display: flex;
     justify-content: center;
   }
+  #details {
+    width: auto;
+  }
   html{
-    width: 100%;
+    width: 100% !important;
   }
   body {
     width: 100%;
@@ -124,6 +113,15 @@ ul, li {
   }
   .container-div {
     margin-left: none;
+  }
+  #gnome-name {
+    font-size: 2.5vh;
+  }
+  #subtitle {
+    font-size: 2.5vh;
+  }
+  .search-div {
+    width: 10%;
   }
 }
 
@@ -135,7 +133,7 @@ ul, li {
 }
 
 .gnome-list__item {
-  padding: 10px;
+  padding: 5%;
   flex: 1  20%;
   max-width: 20%;
 }
@@ -145,7 +143,7 @@ ul, li {
    ========================================================================== */
 
 .gnome__image-wrapper {
-  padding: 20px;
+  padding: 1.3em;
   position: relative;
 }
 
@@ -162,7 +160,7 @@ ul, li {
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
-  padding: 10px 20px 20px;
+  padding: 5% 10% 10%;
   text-align: left;
   width: 250px;
 }
@@ -172,17 +170,17 @@ ul, li {
    ========================================================================== */
 
 .name {
-  padding-bottom: 10px; 
+  padding-bottom: 5%; 
   font-family: 'Lato-Bold', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1.37px;
+  font-size: 3vh;
+  letter-spacing: 0.1vw;
   text-transform: uppercase;
 }
 
 .gnome__subtitle {
-  padding-bottom: 10px; 
-  font-size: 12px;
-  line-height: 19px;
-  letter-spacing: 0.43px;
+  padding-bottom: 5%; 
+  font-size: 3vh;
+  line-height: 5vh;
+  letter-spacing: 0.05vw;
   color: #808080;
 }

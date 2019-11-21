@@ -1,8 +1,8 @@
 import React from "react";
 import Img from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
+import filteredGnomes from "../utils/filteredGnomes";
 import { connect } from "react-redux";
-import filteredGnomes from "../constants/filteredGnomes";
 
 const List = (props) => {
 
@@ -12,7 +12,7 @@ const List = (props) => {
 
   const details = (itemType, item) => {
     if(item.length > 1) {
-      return <p className="gnome__subtitle" itemProp="description"><strong>{itemType}:</strong> {arrayString(item)}</p>
+      return <p id="subtitle" className="gnome__subtitle" itemProp="description"><strong>{itemType}:</strong> {arrayString(item)}</p>
     } else {
       return null;
     }
@@ -30,11 +30,11 @@ const List = (props) => {
         <figure className="gnome__image-wrapper">
           <Img className="gnome__image" src={post.thumbnail} alt="Gnome" itemProp="image"/>              
         </figure>
-        <div className="personal__details">
-          <h2 className="name" ><strong>{post.name}</strong></h2>
-          <p className="gnome__subtitle" itemProp="description"><strong>Height:</strong> {Math.floor(post.height)}cm</p>
-          <p className="gnome__subtitle" itemProp="description"><strong>Weight:</strong> {Math.floor(post.weight)}kg</p>
-          <p className="gnome__subtitle" itemProp="description"><strong>Age:</strong> {Math.floor(post.age)}</p>
+        <div id="details" className="personal__details">
+          <h2 id="gnome-name" className="name" ><strong>{post.name}</strong></h2>
+          <p id="subtitle" className="gnome__subtitle" itemProp="description"><strong>Height:</strong> {Math.floor(post.height)}cm</p>
+          <p id="subtitle" className="gnome__subtitle" itemProp="description"><strong>Weight:</strong> {Math.floor(post.weight)}kg</p>
+          <p id="subtitle" className="gnome__subtitle" itemProp="description"><strong>Age:</strong> {Math.floor(post.age)}</p>
           {details("Friends", post.friends)}
           {details("Professions", post.professions)}
         </div>

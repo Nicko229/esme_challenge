@@ -15,7 +15,7 @@ const Header = (props) => {
       <div>
         <h1 id="header-text" className="page-title">Gnomify</h1>
       </div>
-      <div>
+      <div className="search-div">
         <label className="search-label">Search</label>
         <input onChange= {onChange} type="text" />
       </div>
