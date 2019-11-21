@@ -30,6 +30,14 @@ body {
   box-sizing: border-box;
 }
 
+.container-div {
+  width: 90%;
+  padding: 40px 40px;
+  margin: 0 auto;
+  display: inline-block;
+  margin-left: 5%;
+}
+
 h1, p, figure {
   margin: 0;
   font-weight: normal;
@@ -41,17 +49,9 @@ ul, li {
   padding-left: 0;
 }
 
-.container-div {
-  width: 90%;
-  padding: 40px 40px;
-  margin: 0 auto;
-  display: inline-block;
-  margin-left: 5%;
-}
-
 /* ==========================================================================
-   Gnome List
-   ========================================================================== */
+ Gnome List
+ ========================================================================== */
 
 @media only screen and (max-width: 812px) {
   .gnome-list__item {
@@ -166,4 +166,23 @@ ul, li {
   line-height: 19px;
   letter-spacing: 0.43px;
   color: #808080;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  background-color: #ffffff;
+}
+
+.page-title {
+  display: block;
+  font-size: 20px;
+}
+
+.search-label {
+  margin-right: 5px;
 }

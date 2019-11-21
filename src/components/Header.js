@@ -1,7 +1,6 @@
 import React from "react";
 import { getSearchInput } from "../actions/postActions";
 import { connect } from "react-redux";
-import "./Header.css";
 
 
 const Header = (props) => {
