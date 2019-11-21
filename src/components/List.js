@@ -26,7 +26,7 @@ const List = (props) => {
     <ul className="gnome-list" >
     {currentPosts.map(post => (
     <VisibilitySensor>
-      <li key={post.name} className="gnome-list__item">
+      <li key={post.name} id="gnome-list__item">
         <figure className="gnome__image-wrapper">
           <Img className="gnome__image" src={post.thumbnail} alt="Gnome" itemProp="image"/>              
         </figure>
