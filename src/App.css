@@ -53,22 +53,11 @@ ul, li {
    Gnome List
    ========================================================================== */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 812px) {
   .gnome-list__item {
     padding: 10px;
     flex: 1  45%;
     max-width: 45%;
-  }
-  html{
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 812px) {
-  .gnome-list__item {
-    padding: 10px;
-    flex: 2  90%;
-    max-width: 90%;
   }
   .page-title {
     display: none;
@@ -90,9 +79,7 @@ ul, li {
   }
 }
 
-/* TODO create media query for portrait mobile */
-
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 375px) {
   .gnome-list__item {
     padding: 10px;
     flex: 1  90%;
@@ -125,13 +112,13 @@ ul, li {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  padding: none !important;
+  padding: none;
 }
 
 .gnome-list__item {
   padding: 10px;
-  flex: 1  33.3333%;
-  max-width: 33.3333%;
+  flex: 1  20%;
+  max-width: 20%;
 }
 
 /* ==========================================================================

@@ -12,8 +12,10 @@ const Header = (props) => {
   }
 
   return(
-    <header className="header container-div">
-      <h1 id="header-text" className="page-title">Gnomify</h1>
+    <header className="header">
+      <div>
+        <h1 id="header-text" className="page-title">Gnomify</h1>
+      </div>
       <div>
         <label className="search-label">Search</label>
         <input onChange= {onChange} type="text" />
