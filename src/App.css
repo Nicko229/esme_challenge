@@ -16,7 +16,7 @@ body {
   flex: 1 0 auto;
   
   font-family: 'Lato-Regular', sans-serif;
-  font-size: 13px;
+  font-size: 1em;
   text-rendering: optimizeLegibility;
 
   -moz-osx-font-smoothing: grayscale; 
@@ -32,7 +32,7 @@ body {
 
 .container-div {
   width: 90%;
-  padding: 40px 40px;
+  /* padding: 40px 40px; */
   margin: 0 auto;
   display: inline-block;
   margin-left: 5%;
@@ -50,7 +50,7 @@ ul, li {
 }
 
 .header {
-  height: 60px;
+  height: 4em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,11 +61,11 @@ ul, li {
 
 .page-title {
   display: block;
-  font-size: 20px;
+  font-size: 1.5em;
 }
 
 .search-label {
-  margin-right: 5px;
+  margin-right: 1.5em;
 }
 
 /* ==========================================================================
