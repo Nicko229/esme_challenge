@@ -2,7 +2,7 @@ import React from "react";
 import Img from 'react-image';
 import VisibilitySensor from 'react-visibility-sensor';
 import { connect } from "react-redux";
-import filteredGnomes from "../constants/filteredGnomes";
+import filteredGnomes from "../utils/filteredGnomes";
 
 const List = (props) => {
 
