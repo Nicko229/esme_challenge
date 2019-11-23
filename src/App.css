@@ -32,7 +32,6 @@ body {
 
 .container-div {
   width: 90%;
-  /* padding: 40px 40px; */
   margin: 0 auto;
   display: inline-block;
   margin-left: 5%;
@@ -72,52 +71,30 @@ ul, li {
  Gnome List
  ========================================================================== */
 
-@media only screen and (max-width: 812px) {
-  .gnome-list__item {
-    padding: 10px;
-    flex: 1  45%;
-    max-width: 45%;
-  }
+/* Pixel 2 XL widest landscape screen. Also caters for the ipad portrait. */
+
+@media only screen and (max-width: 823px) {
   .page-title {
     display: none;
-    width: 90%;
-    font-size: 20px;
   }
   .header {
     display: flex;
     justify-content: center;
-  }
-  html{
-    width: 100%;
-  }
-  body {
-    width: 100%;
   }
   .page-title {
     display: none;
   }
 }
 
-@media only screen and (max-width: 375px) {
-  .gnome-list__item {
-    padding: 10px;
-    flex: 1  90%;
-    max-width: 100%;
-  }
+/* iphone 6/7/8 plus is the widest phone screen at 414px portrait */
+
+@media only screen and (max-width: 414px) {
   .page-title {
     display: none;
-    width: 90%;
-    font-size: 20px;
   }
   .header {
     display: flex;
     justify-content: center;
-  }
-  html{
-    width: 100%;
-  }
-  body {
-    width: 100%;
   }
   .page-title {
     display: none;
@@ -132,12 +109,6 @@ ul, li {
   justify-content: center;
   flex-flow: row wrap;
   padding: none;
-}
-
-.gnome-list__item {
-  padding: 1em;
-  flex: 1  20%;
-  max-width: 20%;
 }
 
 /* ==========================================================================
