@@ -19,6 +19,8 @@ const App = (props) => {
     props.fetchPosts();
   }, []);
 
+  console.log("posts", props.posts)
+
   const paginate = (pageNumber) => props.getCurrentPage(pageNumber)
 
   return (
