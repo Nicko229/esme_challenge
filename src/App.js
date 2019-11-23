@@ -10,7 +10,7 @@ import {
  } from "./actions/postActions";
  import Header from "./components/Header";
  import List from "./components/List";
- import filteredGnomes from "./constants/filteredGnomes";
+ import filteredGnomes from "./utils/filteredGnomes";
 import './App.css';
 
 const App = (props) => {
