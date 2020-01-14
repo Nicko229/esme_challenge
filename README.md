@@ -16,14 +16,6 @@ to start the development server at:
 
 http://localhost:3000
 
-### `npm test`
-
-to run tests in Jest and Enzyme. 
-
-I have included some basic testing in the actions and reducers but ran out of time to conclusively test the application. 
-
-
-
 ## Image Caching and Performance
 
 * Added react-image npm package which uses ```<Img />``` tags to cache images.
